@@ -157,7 +157,7 @@ def leaveapply(request):
 @login_required(login_url='login')
 def create_leave(request):
     form = createleaveform()
-    email = 'overthinker740@gmail.com'
+    # email = 'overthinker740@gmail.com'
     if request.method == 'POST':
         form = createleaveform(request.POST)
         if form.is_valid():
@@ -166,7 +166,7 @@ def create_leave(request):
             to_date = form.cleaned_data['to_date']
             purpose = form.cleaned_data['purpose']
             leave_type = form.cleaned_data['leave_type']
-            send_mail_hr(email, employee, from_date, to_date, purpose)
+            # send_mail_hr(email, employee, from_date, to_date, purpose)
             form.save()
             return redirect('leave_all')
     return render(request, 'create_leave.html', {'form': form})

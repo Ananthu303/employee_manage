@@ -40,4 +40,4 @@ Create, update, and delete employees.
 Assign designations to employees.
 Assign teams to employees.
 Track and manage employee leaves.
-Please refer to the code implementation and the Django documentation for detailed usage instructions and integration with your Django project.
+

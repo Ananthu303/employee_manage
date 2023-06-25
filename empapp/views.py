@@ -162,6 +162,7 @@ def create_leave(request):
         form = createleaveform(request.POST)
         if form.is_valid():
             employee = form.cleaned_data['employee']
+            
             from_date = form.cleaned_data['from_date']
             to_date = form.cleaned_data['to_date']
             purpose = form.cleaned_data['purpose']

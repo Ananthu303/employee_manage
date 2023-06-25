@@ -2,7 +2,7 @@
 <html lang="en">
 <style>
     body {
-    background-image: url('background-image.jpg');
+    
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -78,6 +78,7 @@
             <thead>
                 <tr>
                     <th>Employee ID</th>
+                    <th>Employee</th>
                     <th>First name</th>
                     <th>Last name</th>
                     <th>Email</th>
@@ -95,6 +96,7 @@
                 {% for i in a %}
                 <tr>
                     <td>{{i.employeeID}}</td>
+                    <td>{{i.employee}}</td>
                     <td>{{i.firstname}}</td>
                     <td>{{i.lastname}}</td>
                     <td>{{i.email}}</td>

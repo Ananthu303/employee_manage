@@ -63,10 +63,10 @@ def create(request):
 @login_required(login_url='login')
 def edit(request, id):
     a = Employees.objects.get(id=id)
-    print('xxxx')
+    
 
     if request.method == 'POST':
-        print('dddd')
+       
         user = User.objects.get(id=request.user.id)
         employee = request.POST['employee']
         firstname = request.POST['firstname']
@@ -119,7 +119,7 @@ def delete_designation(request, id):
         b = Designation.objects.get(employee=a)
         b.delete()
     except:
-        return HttpResponse('Role doesnt Exist')
+        return redirect('index')
     return redirect('index')
 
 
@@ -162,7 +162,6 @@ def create_leave(request):
         form = createleaveform(request.POST)
         if form.is_valid():
             employee = form.cleaned_data['employee']
-            
             from_date = form.cleaned_data['from_date']
             to_date = form.cleaned_data['to_date']
             purpose = form.cleaned_data['purpose']
@@ -182,7 +181,7 @@ def edit_leave(request, id):
         if form.is_valid():
             form.save()
             return redirect('leave_all')
-    return render(request, 'edit_leave.html', {'form': form})
+    return render(request, 'edit_leave.html', {'form': form,'e':a.employee})
 
 
 @login_required(login_url='login')

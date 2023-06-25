@@ -19,10 +19,10 @@ class Employees(models.Model):
             last_object = self.__class__.objects.last()  # Get the last object in the class
             if last_object:
                 last_id = int(last_object.id)
-                user_id = str(last_id + 1)
+                emp_id = str(last_id + 1)
             else:
-                user_id = '1'
-            self.employeeID = 'EMP ' + user_id
+                emp_id = '1'
+            self.employeeID = 'EMP ' + emp_id
         super().save(*args, **kwargs)
     def __str__(self):
         return self.employee

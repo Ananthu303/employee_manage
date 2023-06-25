@@ -20,12 +20,21 @@ class roleform(ModelForm):
         fields = '__all__'
         exclude = ('employee',)
 
+from django import forms
+from .models import Employee_leaves
 
-class leaveform(ModelForm):
+class leaveform(forms.ModelForm):
     class Meta:
         model = Employee_leaves
-        fields = '__all__'
-        exclude = ('employee',)
+        fields = [ 'from_date', 'to_date', 'leave_type', 'purpose']
+        widgets = {
+            
+            'from_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'to_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'leave_type': forms.Select(attrs={'class': 'form-control'}),
+            'purpose': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
         
 
 
